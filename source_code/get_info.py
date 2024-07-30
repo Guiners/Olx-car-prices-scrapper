@@ -15,8 +15,8 @@ class Get_info(Format_data):
     def get_site_info(url: str, prices: list) -> [list, list]:
         page = get(url)
         bs = BeautifulSoup(page.content, features="html.parser")
-        dupa = bs.find('table', id='offers_table' )
-        for offer in dupa.find_all('td', class_='offer'):
+        d = bs.find('table', id='offers_table' )
+        for offer in d.find_all('td', class_='offer'):
             name_footer = offer.find('p', class_='price')
             name = name_footer.find('strong').get_text()
             if name.find('comp') != -1 or name.find('Comp') != -1 or name.find('Komp') != -1:
